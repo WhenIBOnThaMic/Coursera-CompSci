@@ -8,10 +8,11 @@ public class Checkerboard {
         //setting up stuff
         for (int row = 0; row < n; row++) {
             for (int column = 0; column < n; column++) {
-                if (blue) {
-                    
-                }
+                if (blue == true) StdDraw.setPenColor(StdDraw.BLUE);
+                else StdDraw.setPenColor(StdDraw.GRAY);
+                StdDraw.filledRectangle(row + 0.5, column + 0.5, 0.5, 0.5);
+                blue = !blue;
             }
-        }
+        } //if last square blue this square grey and vice versa
     }
 }
