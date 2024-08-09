@@ -1,5 +1,7 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+        int[][] a = new int[7][6];
+        int b = a[0].length;
+        System.out.println(b);
     }
 }
