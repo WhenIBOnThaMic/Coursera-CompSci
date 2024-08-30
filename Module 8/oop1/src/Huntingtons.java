@@ -5,7 +5,7 @@ public class Huntingtons {
         int counterMax = 0;
         int tempCounter = 0;
         while (i < dna.length()) {
-            if (i >= dna.length()) {break;}
+            if (i+2 >= dna.length()) {break;}
             if (dna.charAt(i) == 'C' && dna.charAt(i+1) == 'A' && dna.charAt(i+2) == 'G' ) {
                 tempCounter++;
                 counterMax = Math.max(counterMax, tempCounter);
