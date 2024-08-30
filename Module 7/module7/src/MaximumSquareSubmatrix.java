@@ -4,19 +4,20 @@ public class MaximumSquareSubmatrix {
     public static int size(int[][] a) {
         int n = a.length;
         int biggie = 0;
+        int[][] b = a;
 
         for (int y = n - 2; y >= 0; y--) {
             for (int x = n - 2; x >= 0; x--) {
-                if (a[x][y] != 0) a[x][y] += Math.min(a[x+1][y], Math.min(a[x+1][y+1], a[x][y+1]));
-                biggie = Math.max(biggie, a[x][y]);
+                if (b[x][y] != 0) b[x][y] += Math.min(b[x+1][y], Math.min(b[x+1][y+1], b[x][y+1]));
+                //biggie = Math.max(biggie, b[x][y]);
+            }
+        }
+        for (int y = n - 1; y >= 0; y--) {
+            for (int x = n - 1; x >= 0; x--) {
+                biggie = Math.max(biggie, b[x][y]);
             }
         }
 
-        for (int y = 0; y < n; y++) {
-            for (int x = 0; x < n ; x++) {
-                    System.out.println(a[x][y]);
-            }
-        }
 
         return biggie;
 
@@ -35,13 +36,8 @@ public class MaximumSquareSubmatrix {
             }
         }
 
-        for (int y = 0; y < n; y++) {
-            for (int x = 0; x < n ; x++) {
-                    System.out.println(a[x][y]);
-            }
-        }
         int returnThis = size(a);
-        System.out.println( "\n" + returnThis);
+        System.out.println(returnThis);
 
 
     }

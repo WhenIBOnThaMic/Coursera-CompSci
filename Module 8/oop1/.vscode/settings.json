@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": [
+        "src"
+    ],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "c:\\Users\\Do Hoang Minh\\Desktop\\Coursera CompSci\\stdlib.jar"
+    ],
+    "java.debug.settings.onBuildFailureProceed": true
+}
