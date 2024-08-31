@@ -23,7 +23,8 @@ public class ColorHSB {
     
     // Is this color a shade of gray?
     public boolean isGrayscale() {
-
+        if (saturation == 0 || brightness == 0) {return true;}
+        else {return false;}
     }
     /*
     // Returns the squared distance between the two colors.
