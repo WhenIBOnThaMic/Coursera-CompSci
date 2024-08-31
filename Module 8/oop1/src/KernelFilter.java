@@ -35,18 +35,15 @@ public class KernelFilter {
                         increment++;
                     }
                 }
-                float newRed = 0;
-                float newGreen = 0;
-                float newBlue = 0;
+                int newRed = 0;
+                int newGreen = 0;
+                int newBlue = 0;
                 newRed = newRed + redValues[0] + 2*redValues[1]  + redValues[2]  + 2*redValues[3]  + 4*redValues[4]  + 2*redValues[5]  + 1*redValues[6]  + 2*redValues[7]  + 1*redValues[8] ;
                 newRed/=16;
-                newRed = Math.round(newRed);
                 newGreen = newGreen + greenValues[0] + 2*greenValues[1]  + greenValues[2]  + 2*greenValues[3]  + 4*greenValues[4]  + 2*greenValues[5]  + 1*greenValues[6]  + 2*greenValues[7]  + 1*greenValues[8] ;
                 newGreen/=16;
-                newGreen = Math.round(newGreen);
                 newBlue = newBlue + blueValues[0]  + 2*blueValues[1]  + blueValues[2]  + 2*blueValues[3]  + 4*blueValues[4]  + 2*blueValues[5]  + 1*blueValues[6]  + 2*blueValues[7]  + 1*blueValues[8] ;
                 newBlue/=16;
-                newBlue = Math.round(newBlue);
                 
                 if (newRed > 255) {newRed = 255;} 
                 if (newRed < 0) { newRed = 0;}
