@@ -11,8 +11,8 @@ public class Clock {
     // Creates a clock whose initial time is specified as a string, using the format HH:MM.
     public Clock(String s) throws IllegalArgumentException {
         if (s.length() > 5) throw new IllegalArgumentException();
-        if ( Integer.parseInt(s.substring(0, 1)) < 0 || Integer.parseInt(s.substring(0, 1)) > 23 ) throw new IllegalArgumentException();
-        if ( Integer.parseInt(s.substring(3, 4)) < 0 || Integer.parseInt(s.substring(0, 1)) > 59 ) throw new IllegalArgumentException();
+        if ( Integer.parseInt(s.substring(0, 2)) < 0 || Integer.parseInt(s.substring(0, 2)) > 23 ) throw new IllegalArgumentException();
+        if ( Integer.parseInt(s.substring(3, 5)) < 0 || Integer.parseInt(s.substring(3, 5)) > 59 ) throw new IllegalArgumentException();
         if (s.charAt(2) != ':') throw new IllegalArgumentException();
         hour = Integer.parseInt(s.substring(0,1));
         minutes = Integer.parseInt(s.substring(3, 4));
@@ -42,7 +42,5 @@ public class Clock {
     */
     // Test client (see below).
     public static void main(String[] args) {
-        String a = "23:59";
-        Clock b = new Clock(a);
     }
 }
