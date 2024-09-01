@@ -41,7 +41,7 @@ public class ColorHSB {
     // Sample client (see below).
     public static void main(String[] args) {
         ColorHSB referenceColor = new ColorHSB(Integer.parseInt(args[0]), Integer.parseInt(args[1]), Integer.parseInt(args[2]));
-        In input = new In(args[3]);
+        In input = new In();
         String[] allColorsArray = input.readAllStrings(); //a string of everything the input read
         int amountOfColors = allColorsArray.length/4; //each color has 4 inputs, so # of colors = # of inputs/4
 
@@ -54,7 +54,6 @@ public class ColorHSB {
             colorNamesArray[i] = allColorsArray[4*i];
             ColorHSBsArray[i] = new ColorHSB(Integer.parseInt(allColorsArray[4*i + 1]), Integer.parseInt(allColorsArray[4*i + 2]), Integer.parseInt(allColorsArray[4*i + 3]));
             //initializing namesArray and HSBsArray
-
             if (referenceColor.distanceSquaredTo(ColorHSBsArray[i]) < distanceToReferenceColor) {
                 distanceToReferenceColor = referenceColor.distanceSquaredTo(ColorHSBsArray[i]);
                 closestToReferenceColor = colorNamesArray[i] + " " + ColorHSBsArray[i].toString();
