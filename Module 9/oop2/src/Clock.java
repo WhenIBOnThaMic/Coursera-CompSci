@@ -15,19 +15,19 @@ public class Clock {
         if ( Integer.parseInt(s.substring(3, 5)) < 0 || Integer.parseInt(s.substring(3, 5)) > 59 ) throw new IllegalArgumentException();
         if (s.charAt(2) != ':') throw new IllegalArgumentException();
         hour = Integer.parseInt(s.substring(0,2));
-        minutes = Integer.parseInt(s.substring(3, 5));
+        minute = Integer.parseInt(s.substring(3, 5));
 
     }
 
     
     // Returns a string representation of this clock, using the format HH:MM.
     public String toString(){
-        String hour2;
-        String minute2;
+        String hour2 = "";
+        String minute2 = "";
         if (hour < 10) {hour2 = "0" + hour;}
-        if (minute < 10) {minute2 = "0" + hour;}
+        if (minute < 10) {minute2 = "0" + minute;}
 
-        String a = "";
+        String a = hour2 + ":" + minute2;
         return a;
     }
     /*
