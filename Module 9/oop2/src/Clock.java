@@ -30,12 +30,12 @@ public class Clock {
         String a = hour2 + ":" + minute2;
         return a;
     }
-    /*
+    
     // Is the time on this clock earlier than the time on that one?
     public boolean isEarlierThan(Clock that) {
 
     }
-
+    /*
     // Adds 1 minute to the time on this clock.
     public void tic() {
 
