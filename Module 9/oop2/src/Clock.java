@@ -22,37 +22,71 @@ public class Clock {
     
     // Returns a string representation of this clock, using the format HH:MM.
     public String toString(){
-        String hour2 = "";
-        String minute2 = "";
-        if (hour < 10) {hour2 = "0" + hour;}
-        if (minute < 10) {minute2 = "0" + minute;}
-
-        String a = hour2 + ":" + minute2;
-        return a;
+        String a = "";
+        if (hour < 10 && minute < 10) {
+            a = "0" + hour + ":" + "0" + minute;
+            return a;
+        } else 
+        if (hour < 10) {
+            a = "0" + hour + ":" + minute;
+            return a;
+        } else
+        if (minute < 10) {
+            a = hour + ":" + "0" + minute;
+            return a;
+        } else {
+            a = hour + ":" + minute;
+            return a;
+        }
     }
     
     // Is the time on this clock earlier than the time on that one?
     public boolean isEarlierThan(Clock that) {
-
+        if (hour == that.hour) {return (minute < that.minute);}
+        else {return (hour < that.hour);}
     }
-    /*
+    
     // Adds 1 minute to the time on this clock.
     public void tic() {
-
+        minute += 1;
+        if (minute > 59) {
+            minute -= 60;
+            hour += 1;
+        }
+        if (hour > 23) {
+            hour -= 24;
+        }
     }
 
     // Adds Δ minutes to the time on this clock.
     public void toc(int delta) {
-
+        minute += delta;
+        while(minute > 59) {
+            minute -= 60;
+            hour += 1;
+        }
+        while (hour > 23) {
+            hour -= 24;
+        }
     }
-    */
+    
     // Test client (see below).
     public static void main(String[] args) {
-        String sus = "01:03";
-        Clock a = new Clock(1, 3);
+        Clock a = new Clock(3, 0);
+        String sus = "02:03";
         Clock b = new Clock(sus);
-        System.out.println(a.toString());
-        System.out.println(b.toString());
+        String a2 = a.toString();
+        String b2 = b.toString();
+        System.out.println(b2);
+        System.out.println(a2);
+        a.tic();
+        System.out.print(a.toString() + "\n");
 
+        a.toc(1450);
+        System.out.print(a.toString() + "\n");
+
+        boolean earlier = true;
+        earlier = a.isEarlierThan(b);
+        System.out.println(earlier);
     }
 }
