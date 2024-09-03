@@ -60,14 +60,15 @@ public class Clock {
 
     // Adds Δ minutes to the time on this clock.
     public void toc(int delta) {
+        if (delta < 0) throw new IllegalArgumentException();
+
         minute += delta;
         while(minute > 59) {
-            minute -= 60;
-            hour += 1;
+            minute = minute%60;
+            hour += Math.floor((double)minute/60);
+            if (hour > 23) {hour = hour%24;}
         }
-        while (hour > 23) {
-            hour -= 24;
-        }
+
     }
     
     // Test client (see below).
