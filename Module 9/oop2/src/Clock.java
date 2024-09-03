@@ -2,14 +2,14 @@ public class Clock {
     private int hour;
     private int minute;
     // Creates a clock whose initial time is h hours and m minutes.
-    public Clock(int h, int m) throws IllegalArgumentException {
+    public Clock(int h, int m) {
         if (h < 0 || h > 23 || m < 0 || m > 59) throw new IllegalArgumentException();
         hour = h;
         minute = m;
     }
 
     // Creates a clock whose initial time is specified as a string, using the format HH:MM.
-    public Clock(String s) throws IllegalArgumentException {
+    public Clock(String s) {
         if (s.length() > 5) throw new IllegalArgumentException();
         if ( Integer.parseInt(s.substring(0, 2)) < 0 || Integer.parseInt(s.substring(0, 2)) > 23 ) throw new IllegalArgumentException();
         if ( Integer.parseInt(s.substring(3, 5)) < 0 || Integer.parseInt(s.substring(3, 5)) > 59 ) throw new IllegalArgumentException();

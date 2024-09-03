@@ -4,10 +4,10 @@ public class ColorHSB {
     private final int brightness;
 
     // Creates a color with hue h, saturation s, and brightness b.
-    public ColorHSB(int h, int s, int b) throws IllegalArgumentException {
+    public ColorHSB(int h, int s, int b){
         if (h > 359 || h < 0) throw new IllegalArgumentException();
         if (s < 0 || s > 100) throw new IllegalArgumentException();
-        if (s < 0 || s > 100) throw new IllegalArgumentException();
+        if (b < 0 || b > 100) throw new IllegalArgumentException();
         //conditions 
         hue = h;
         saturation = s;
@@ -28,7 +28,7 @@ public class ColorHSB {
     }
     
     // Returns the squared distance between the two colors.
-    public int distanceSquaredTo(ColorHSB that) throws IllegalArgumentException{
+    public int distanceSquaredTo(ColorHSB that){
         if (that == null) throw new IllegalArgumentException();
         int hueDiff = hue - that.hue;
         int saturationDiff = saturation - that.saturation;
