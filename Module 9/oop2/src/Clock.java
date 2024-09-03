@@ -64,8 +64,8 @@ public class Clock {
 
         minute += delta;
         while(minute > 59) {
-            minute = minute%60;
             hour += Math.floor((double)minute/60);
+            minute = minute%60;
             if (hour > 23) {hour = hour%24;}
         }
 
