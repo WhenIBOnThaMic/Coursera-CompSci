@@ -4,6 +4,7 @@ public class Bar implements Comparable<Bar> {
     private final String barCategory;
     // Creates a new bar.
     public Bar(String name, int value, String category) {
+        if (name == null || value < 0 || category == null) throw new IllegalArgumentException();
         barName = name;
         barValue = value;
         barCategory = category;
@@ -27,7 +28,9 @@ public class Bar implements Comparable<Bar> {
 
     // Compare two bars by value.
     public int compareTo(Bar that) {
+        if (that == null) throw new NullPointerException();
         return barValue - that.barValue;
+
     }
 
     // Sample client (see below).
