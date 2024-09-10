@@ -3,12 +3,17 @@ import java.util.Arrays;
 
 public class BarChartRacer {
     public static void main(String[] args) {
+        String inputFile = args[0];
+        int amountOfBarsToDisplay = Integer.parseInt(args[1]);
         In inputStream = new In();
         String title = inputStream.readLine();
         String xAxisLabel = inputStream.readLine();
         String dataSource = inputStream.readLine();
+        BarChart drawingBoard = new BarChart(title, xAxisLabel, dataSource);
+        StdDraw.setCanvasSize(1000, 700);
+        StdDraw.enableDoubleBuffering();
         inputStream.readLine(); //skip blank line
-        //labels done
+        //setups done
 
         /*idea for each loop: read the amount of bars, 
         create array of bars, 
@@ -20,6 +25,7 @@ public class BarChartRacer {
         */
         while (!inputStream.isEmpty()) {
             int numberOfBars = inputStream.readInt();
+            inputStream.readLine();// do this so the pointer would move to next line and the next .readLine() doesnt read from the rest of current line 
             Bar[] arrayOfBars = new Bar[numberOfBars];
             String chartCaption = "";
 
@@ -37,14 +43,25 @@ public class BarChartRacer {
                     else if (numberOfCommasEncountered == 4 && barInput.charAt(pointer) != ',') {barCategory += barInput.charAt(pointer);}
                     else if (barInput.charAt(pointer) == ',') {numberOfCommasEncountered++;}
                 }//indexing the bar input for required values
+                arrayOfBars[i] = new Bar(barName, Integer.parseInt(barValueString), barCategory);
                 
             } 
             //filling array with bars
+
+            Arrays.sort(arrayOfBars); //sort
+
+            drawingBoard.reset(); //reset chart
+
+            drawingBoard.setCaption(chartCaption);
+            for (int i = 0; i < amountOfBarsToDisplay; i++) {
+                drawingBoard.add(arrayOfBars[i].getName(), arrayOfBars[i].getValue(), arrayOfBars[i].getCategory());
+            }
+            // add bars to chart
+
+            drawingBoard.draw();
+            StdDraw.show();
             
-            Arrays.sort(arrayOfBars);
-            //sort
-
-
+            inputStream.readLine(); // to skip the blank line between each block of inputs
         }
     }
 }
