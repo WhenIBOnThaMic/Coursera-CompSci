@@ -29,7 +29,11 @@ public class Bar implements Comparable<Bar> {
     // Compare two bars by value.
     public int compareTo(Bar that) {
         if (that == null) throw new NullPointerException();
-        return that.barValue - barValue;
+        int a = barValue - that.barValue;
+        int returnValue = 0;
+        if (a > 0) {returnValue = 1;}
+        if (a < 0) {returnValue = -1;}
+        return returnValue;
 
     }
 

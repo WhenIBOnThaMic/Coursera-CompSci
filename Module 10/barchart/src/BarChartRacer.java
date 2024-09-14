@@ -1,9 +1,9 @@
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 public class BarChartRacer {
-    public static void main(String[] args) {
-        String inputFile = args[0];
+public static void main(String[] args) {
+    
+       String inputFile = args[0];
         int amountOfBarsToDisplay = Integer.parseInt(args[1]);
         //String inputFile = "https://coursera.cs.princeton.edu/introcs/assignments/barchart/files/cities.txt";
         //int amountOfBarsToDisplay = 10;
@@ -27,8 +27,7 @@ public class BarChartRacer {
         draw,
         */
         while (!inputStream.isEmpty()) {
-            int numberOfBars = inputStream.readInt();
-            inputStream.readLine();// do this so the pointer would move to next line and the next .readLine() doesnt read from the rest of current line 
+            int numberOfBars = Integer.parseInt(inputStream.readLine());
             Bar[] arrayOfBars = new Bar[numberOfBars];
             String chartCaption = "";
 
@@ -57,7 +56,8 @@ public class BarChartRacer {
 
             drawingBoard.setCaption(chartCaption);
             for (int i = 0; i < amountOfBarsToDisplay; i++) {
-                drawingBoard.add(arrayOfBars[i].getName(), arrayOfBars[i].getValue(), arrayOfBars[i].getCategory());
+                int length = arrayOfBars.length;
+                drawingBoard.add(arrayOfBars[length - i - 1].getName(), arrayOfBars[length - i - 1].getValue(), arrayOfBars[length - i - 1].getCategory());
             }
             // add bars to chart
             StdDraw.clear();
@@ -65,7 +65,7 @@ public class BarChartRacer {
             drawingBoard.draw();
 
             StdDraw.show();
-            
+            StdDraw.pause(5);
             inputStream.readLine(); // to skip the blank line between each block of inputs
         }
     }
