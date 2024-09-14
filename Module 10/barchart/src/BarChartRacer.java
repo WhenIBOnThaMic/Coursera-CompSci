@@ -5,7 +5,10 @@ public class BarChartRacer {
     public static void main(String[] args) {
         String inputFile = args[0];
         int amountOfBarsToDisplay = Integer.parseInt(args[1]);
-        In inputStream = new In();
+        //String inputFile = "https://coursera.cs.princeton.edu/introcs/assignments/barchart/files/cities.txt";
+        //int amountOfBarsToDisplay = 10;
+
+        In inputStream = new In(inputFile);
         String title = inputStream.readLine();
         String xAxisLabel = inputStream.readLine();
         String dataSource = inputStream.readLine();
@@ -57,8 +60,10 @@ public class BarChartRacer {
                 drawingBoard.add(arrayOfBars[i].getName(), arrayOfBars[i].getValue(), arrayOfBars[i].getCategory());
             }
             // add bars to chart
+            StdDraw.clear();
 
             drawingBoard.draw();
+
             StdDraw.show();
             
             inputStream.readLine(); // to skip the blank line between each block of inputs
