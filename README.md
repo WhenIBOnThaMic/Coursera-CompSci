@@ -1,1 +1,1 @@
-This sum mad fun stuff. Learnt a whole lotta thing, but most valuable is probably how to pseudocode. Establishing the logic really helps when I actually execute it.
+This sum mad fun stuff. Learnt a whole lotta thing, but most valuable is probably how to pseudocode. Establishing the logic really helps when I actually execute it. (also had to literally paste all files in stdlib to the src folder because my comp refused to comply (i spent at least 3 entire days unironically figuring out fixes))
